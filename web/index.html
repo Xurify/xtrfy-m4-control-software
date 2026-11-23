@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="m4-token" content="__TOKEN__">
+<title>Xtrfy M4</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="product">Xtrfy M4</div>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+  </aside>
+
+  <main class="main">
+    <header class="banner">
+      <div class="banner-text">
+        <h1>M4 Wireless <span id="pageTitle"></span></h1>
+        <dl class="facts" id="facts"></dl>
+      </div>
+      <div class="setup-switch">
+        <button class="select select-quiet" id="setupSwitch" type="button" aria-label="Switch setup"></button>
+      </div>
+      <div class="device-view banner-view" data-view aria-hidden="true"><div class="art base" data-art="iso"></div><div class="art lit" data-art="iso"></div></div>
+      <div class="save" id="save" role="status" aria-live="polite"></div>
+    </header>
+
+    <div class="notice" id="notice" role="status" hidden></div>
+    <div class="pages" id="pages">
+
+      <section class="page" data-page="performance">
+        <div class="group">
+          <h2>DPI</h2>
+          <div class="panel dpi-panel">
+            <div class="dpi-art art" data-art="top"></div>
+            <div class="dpi-main">
+              <div class="readout">
+                <span class="readout-dot" id="readoutDot"></span>
+                <span class="readout-value" id="readoutValue"></span>
+                <span class="readout-unit">DPI</span>
+                <span class="readout-stage" id="readoutStage"></span>
+              </div>
+              <div class="ladder" id="ladder" aria-hidden="true"><div class="ladder-track"></div><span class="ladder-end">50</span><span class="ladder-end right">19,000</span></div>
+              <div class="stage-table" id="stages" role="radiogroup" aria-label="Active DPI stage"></div>
+              <div class="row row-flush">
+                <div class="row-text"><div class="row-label">Stages in cycle</div><div class="row-hint">How many stages the DPI button steps through.</div></div>
+                <button class="btn btn-quiet" id="sortStages" type="button">Sort by DPI</button>
+                <div class="stepper">
+                  <button class="icon-btn" data-step="-1" aria-label="Fewer stages">−</button>
+                  <output id="stageCount"></output>
+                  <button class="icon-btn" data-step="1" aria-label="More stages">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>On screen</h2>
+          <div class="panel">
+            <label class="row">
+              <div class="row-text"><div class="row-label">Show DPI when it changes</div><div class="row-hint">A small pop-up near the bottom of the screen when you press the DPI button.</div></div>
+              <input type="checkbox" class="switch" id="dpiPopup">
+            </label>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Sensor</h2>
+          <div class="panel">
+            <div class="row"><div class="row-text"><div class="row-label">Polling rate</div></div><div class="seg" id="polling"></div></div>
+            <div class="row"><div class="row-text"><div class="row-label">Lift-off distance</div></div><div class="seg" id="lod"></div></div>
+            <div class="row">
+              <div class="row-text"><div class="row-label">Click debounce</div><div class="row-hint">Raise it if a single click ever registers twice.</div></div>
+              <div class="range"><input type="range" min="0" max="30" step="1" id="debounce" aria-label="Click debounce"><output id="debounceOut"></output></div>
+            </div>
+            <label class="row"><div class="row-text"><div class="row-label">Angle snapping</div></div><input type="checkbox" class="switch" data-key="angle_snap"></label>
+            <label class="row"><div class="row-text"><div class="row-label">Ripple control</div></div><input type="checkbox" class="switch" data-key="ripple"></label>
+            <label class="row"><div class="row-text"><div class="row-label">Motion sync</div><div class="row-hint">May have no effect on this sensor.</div></div><input type="checkbox" class="switch" data-key="motion_sync"></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page="lighting">
+        <div class="preview-panel">
+          <div class="device-view big" data-view aria-hidden="true"><div class="art base" data-art="iso"></div><div class="art lit" data-art="iso"></div></div>
+          <div class="preview-caption" id="previewCaption"></div>
+        </div>
+        <div class="group">
+          <h2>Lighting</h2>
+          <div class="panel">
+            <label class="row"><div class="row-text"><div class="row-label">Lights</div></div><input type="checkbox" class="switch" id="lightsOn"></label>
+            <div class="row" data-needs="on"><div class="row-text"><div class="row-label">Effect</div></div><button class="select" id="effect" type="button"></button></div>
+            <div class="row" data-needs="colour"><div class="row-text"><div class="row-label">Colour</div><div class="row-hint" id="colourHint"></div></div><div class="swatches" id="swatches"></div></div>
+            <div class="row" data-needs="on"><div class="row-text"><div class="row-label">Brightness</div></div><div class="range"><input type="range" min="1" max="10" id="ledBri" aria-label="Brightness"><output id="ledBriOut"></output></div></div>
+            <div class="row" data-needs="speed"><div class="row-text"><div class="row-label">Speed</div></div><div class="range"><input type="range" min="1" max="10" id="ledSpeed" aria-label="Effect speed"><output id="ledSpeedOut"></output></div></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>While charging</h2>
+          <div class="panel">
+            <label class="row">
+              <div class="row-text"><div class="row-label">Hide the charging blink</div><div class="row-hint">With the lights off, the mouse blinks while it charges. This shows a faint steady glow instead until it's full or unplugged.</div></div>
+              <input type="checkbox" class="switch" id="chargeCover">
+            </label>
+          </div>
+          <p class="foot" id="coverHint" hidden>Only works while the app is running. Turn on Run in the background under Power to keep it working.</p>
+        </div>
+      </section>
+
+      <section class="page" data-page="buttons">
+        <div class="group">
+          <h2>Assignments</h2>
+          <div class="panel buttons-panel">
+            <div class="pin-box">
+              <div class="art" data-art="top"></div>
+              <div class="pins" id="pins"></div>
+            </div>
+            <div class="button-rows" id="buttonRows"></div>
+          </div>
+          <p class="foot">The button behind the wheel also follows the switch on the bottom: CPI cycles DPI, RGB changes lighting, PGDN sends Page Down.</p>
+        </div>
+      </section>
+
+      <section class="page" data-page="power">
+        <div class="group">
+          <h2>Battery</h2>
+          <div class="panel">
+            <div class="row"><div class="row-text"><div class="row-label">Charge</div><div class="row-hint">Xtrfy advises charging from a computer's USB port only.</div></div><div class="value" id="batteryValue">—</div></div>
+            <div class="row"><div class="row-text"><div class="row-label">Sleep after idle</div></div><button class="select" id="sleep" type="button"></button></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>App</h2>
+          <div class="panel">
+            <label class="row">
+              <div class="row-text"><div class="row-label">Run in the background</div><div class="row-hint">Starts with Windows so auto lighting and History work with this window closed.</div></div>
+              <input type="checkbox" class="switch" id="autostart">
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page="setups">
+        <div class="group">
+          <h2>Saved setups</h2>
+          <div class="panel" id="setupList"></div>
+          <p class="foot">A setup stores every setting: DPI stages, lighting, buttons, sensor and power. Setups are saved on this PC.</p>
+        </div>
+        <div class="group">
+          <h2>Save current settings</h2>
+          <div class="panel">
+            <form class="row" id="setupForm">
+              <input class="text-input" id="setupName" maxlength="40" placeholder="Name, e.g. Gaming or Work" aria-label="Setup name" autocomplete="off">
+              <button class="btn btn-primary" type="submit">Save setup</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page="reset">
+        <div class="group">
+          <h2>Reset</h2>
+          <div class="panel">
+            <div class="row">
+              <div class="row-text"><div class="row-label">Factory settings</div><div class="row-hint" id="factoryHint">Xtrfy's defaults: 800 DPI, rainbow lighting. The mouse must be on its cable.</div></div>
+              <button class="btn" id="factoryReset" type="button">Reset…</button>
+            </div>
+            <div class="row">
+              <div class="row-text"><div class="row-label">Your original settings</div><div class="row-hint" id="originalHint">How the mouse was the first time this app read it.</div></div>
+              <button class="btn" id="restoreOriginal" type="button">Restore…</button>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>Backup</h2>
+          <div class="panel">
+            <div class="row"><div class="row-text"><div class="row-label">Save settings to a file</div></div><button class="btn" id="backupBtn" type="button">Save…</button></div>
+            <div class="row"><div class="row-text"><div class="row-label">Load settings from a file</div></div><label class="btn">Load…<input type="file" id="restoreFile" accept=".m4,.bin" hidden></label></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page="storage">
+        <div class="group">
+          <h2>Settings memory</h2>
+          <div class="panel pad">
+            <p class="muted" id="storageSummary"></p>
+            <div class="usage" id="usage"></div>
+            <div class="legend" id="legend"></div>
+            <div class="map-wrap">
+              <div class="bytemap" id="bytemap" role="grid" aria-label="Memory map, 256 bytes"></div>
+              <div class="byte-detail" id="byteDetail"><span class="muted">Point at a square to see what that byte holds.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>Macro slots</h2>
+          <div class="panel">
+            <div class="row">
+              <div class="row-text"><div class="row-label" id="macroText">Not scanned</div><div class="row-hint">512 bytes at 0x0100. Sibling mice keep macros and key bindings here; the chip's full size isn't known.</div></div>
+              <button class="btn" id="scanMacros" type="button">Scan</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" data-page="history">
+        <div class="history-bar">
+          <div class="seg" id="historyFilter"></div>
+          <button class="btn btn-quiet" id="clearHistory" type="button">Clear…</button>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="page" data-page="help">
+        <div class="help">
+          <nav class="help-nav" id="helpNav" aria-label="Help topics"></nav>
+          <article class="help-body" id="helpBody"></article>
+        </div>
+      </section>
+    </div>
+
+    <div class="empty" id="empty" hidden>
+      <div class="art art-empty" data-art="iso"></div>
+      <h2 id="emptyTitle"></h2>
+      <p class="muted" id="emptyText"></p>
+    </div>
+  </main>
+</div>
+
+<div class="menu" id="menu" role="menu" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="dialog">
+  <form method="dialog">
+    <h2 id="dialogTitle"></h2>
+    <p class="muted" id="dialogText"></p>
+    <div class="dialog-actions">
+      <button class="btn btn-quiet" value="cancel">Cancel</button>
+      <button class="btn btn-primary" value="ok" id="dialogOk">OK</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="help.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
