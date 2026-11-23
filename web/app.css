@@ -42,7 +42,6 @@ button, input { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 [hidden] { display: none !important; }
 
-/* ---------- shell ---------- */
 .app { display: grid; grid-template-columns: 208px minmax(0, 1fr); height: 100vh; }
 .side { border-right: 1px solid var(--line); padding: 20px 12px; display: flex; flex-direction: column; gap: 22px; overflow-y: auto; }
 .product { padding: 0 8px; }
@@ -74,7 +73,6 @@ button, input { font: inherit; color: inherit; }
 .save.err { color: var(--err); }
 .save.fade { opacity: 0; }
 
-/* ---------- groups, panels, rows ---------- */
 .group { display: flex; flex-direction: column; gap: 8px; }
 .group > h2 { font-size: 13px; font-weight: 600; color: var(--text-2); padding: 0 2px; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); }
@@ -91,7 +89,6 @@ label.row { cursor: pointer; }
 .row-flush { padding-left: 0; padding-right: 0; }
 .value { color: var(--text-2); font-variant-numeric: tabular-nums; }
 
-/* ---------- controls ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; height: 30px; padding: 0 12px; flex: none;
   border-radius: 6px; border: 1px solid var(--line-2); background: var(--hover); cursor: pointer; font-weight: 500; white-space: nowrap;
@@ -139,7 +136,6 @@ input[type="range"]:disabled { opacity: 0.4; }
 .stepper { display: flex; align-items: center; gap: 10px; }
 .stepper output { min-width: 16px; text-align: center; font-variant-numeric: tabular-nums; }
 
-/* ---------- DPI ---------- */
 .dpi-panel { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 18px 16px 6px 20px; }
 .dpi-art { height: 250px; align-self: center; --art-line: #8c929a; }
 .dpi-main { display: flex; flex-direction: column; min-width: 0; }
@@ -167,14 +163,12 @@ input[type="range"]:disabled { opacity: 0.4; }
 .dpi-field span { font-size: 12px; color: var(--text-3); }
 .stage-table + .row { border-top: 1px solid var(--line); margin-top: 6px; }
 
-/* ---------- lighting ---------- */
 .swatches { display: flex; gap: 6px; align-items: center; flex: none; }
 .swatch { width: 20px; height: 20px; border-radius: 5px; border: 0; background: var(--c); cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0,0,0,.3); }
 .swatch[aria-pressed="true"] { outline: 2px solid var(--text); outline-offset: 2px; }
 .swatch.custom { position: relative; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line-2); display: grid; place-items: center; color: var(--text-2); font-size: 14px; line-height: 1; }
 .swatch.custom input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
 
-/* ---------- buttons ---------- */
 .buttons-panel { display: grid; grid-template-columns: 200px 1fr; gap: 12px; padding: 16px 0 6px 20px; }
 .pin-box { position: relative; height: 340px; aspect-ratio: 68 / 120; justify-self: center; --art-line: #8c929a; }
 .pin-box .art { position: absolute; inset: 0; }
@@ -198,7 +192,6 @@ input[type="range"]:disabled { opacity: 0.4; }
 .menu button:hover, .menu button:focus-visible { background: #2a2e34; outline: none; }
 .menu button[aria-checked="true"]::after { content: "✓"; color: var(--text-2); }
 
-/* ---------- storage ---------- */
 .usage { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--line); gap: 1px; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12px; color: var(--text-2); }
 .legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
@@ -214,7 +207,6 @@ input[type="range"]:disabled { opacity: 0.4; }
 .kv dt { color: var(--text-3); }
 .kv dd { margin: 0; font-variant-numeric: tabular-nums; }
 
-/* ---------- history ---------- */
 .history-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .timeline { display: flex; flex-direction: column; }
 .day { font-size: 12px; font-weight: 600; color: var(--text-2); padding: 18px 2px 6px; }
@@ -224,7 +216,6 @@ input[type="range"]:disabled { opacity: 0.4; }
 .entry .src { color: var(--text-3); font-size: 12px; white-space: nowrap; }
 .empty-note { padding: 32px 2px; color: var(--text-2); }
 
-/* ---------- help ---------- */
 .help { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 28px; align-items: start; }
 .help-nav { display: flex; flex-direction: column; gap: 1px; position: sticky; top: 0; }
 .help-nav .group-label { font-size: 12px; font-weight: 600; color: var(--text-3); padding: 12px 8px 4px; }
@@ -242,7 +233,6 @@ input[type="range"]:disabled { opacity: 0.4; }
 .levels i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
 .help-actions { display: flex; gap: 8px; }
 
-/* ---------- empty, toast, dialog ---------- */
 .empty { position: absolute; inset: 151px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 40px; background: var(--bg); }
 .art svg { width: 100%; height: 100%; display: block; }
 .art .s-ln, .art .s-hl, .art .s-dk { stroke: var(--art-line); }
@@ -274,7 +264,6 @@ dialog h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
-/* ---------- banner: the device, lit with its real lighting ---------- */
 .product { padding: 2px 8px 0; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-2); }
 .banner {
   position: relative; flex: none; height: 150px; display: flex; align-items: flex-end; justify-content: space-between;
@@ -342,7 +331,6 @@ dialog h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
 .device-view.big { position: absolute; inset: 18px 0 40px; }
 .preview-caption { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font-size: 12px; color: var(--text-3); }
 
-/* ---------- DPI readout and scale ---------- */
 .readout { display: flex; align-items: baseline; gap: 8px; padding: 2px 8px 0; }
 .readout-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 12px color-mix(in srgb, var(--c) 60%, transparent); align-self: center; }
 .readout-value { font-size: 38px; font-weight: 300; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -370,7 +358,6 @@ dialog h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
 .stage-remove:hover { background: #3a2224; color: #f3b4b4; }
 .row-flush .btn-quiet { margin-left: auto; margin-right: 12px; }
 
-/* ---------- setups ---------- */
 .setup-switch { position: relative; z-index: 2; align-self: flex-end; margin: 0 236px 2px auto; }
 .select-quiet { min-width: 0; background: rgba(17, 19, 22, .7); backdrop-filter: blur(6px); }
 .select-quiet.unsaved { color: var(--text-2); }
@@ -387,7 +374,6 @@ dialog h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
 .text-input:focus { border-color: var(--text-3); }
 .text-input::placeholder { color: var(--text-3); }
 
-/* ---------- asleep notice ---------- */
 .notice {
   flex: none; display: flex; align-items: center; gap: 10px; padding: 9px 32px; font-size: 12.5px; color: #e9c98a;
   background: rgba(224, 162, 58, 0.07); border-bottom: 1px solid rgba(224, 162, 58, 0.18);

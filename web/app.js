@@ -85,8 +85,6 @@ async function api(path, opts = {}) {
   return data;
 }
 
-/* ---------------- saving ---------------- */
-
 function change(patch, delay = 300) {
   if (!cfg) return;
   Object.assign(pending, patch);
@@ -133,8 +131,6 @@ function applyState(s) {
   cfg = s.config ? { ...s.config, ...pending } : null;
   render();
 }
-
-/* ---------------- shell ---------------- */
 
 function buildNav() {
   const nav = $("#nav");
@@ -190,7 +186,6 @@ function confirmDialog(title, text, ok, danger = false) {
   return new Promise((res) => d.addEventListener("close", () => res(d.returnValue === "ok"), { once: true }));
 }
 
-/* One dropdown for every "pick one of many" control. */
 function openMenu(anchor, groups, current, onPick, owner = anchor) {
   if (menuOwner === owner) return closeMenu();
   const m = $("#menu");
@@ -214,8 +209,6 @@ function closeMenu() {
   menuOwner = null;
   if (cfg) markButton(null);
 }
-
-/* ---------------- render ---------------- */
 
 function render() {
   $$(".nav-item").forEach((b) => (b.dataset.page === page ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current")));
@@ -274,7 +267,6 @@ function renderBanner() {
   renderViews();
 }
 
-/* Every drawing of the mouse shows its real lighting: effect, colour, brightness and speed. */
 function renderViews() {
   let fx = "fx-off", led = "#ffffff", bri = 0.8, dur = 3;
   if (cfg && state?.status === "ready") {
@@ -582,8 +574,6 @@ async function scanMacros() {
   }
 }
 
-/* ---------------- history ---------------- */
-
 async function loadHistory() {
   try { historyRows = await api("/api/history"); } catch { historyRows = []; }
   renderHistory();
@@ -613,8 +603,6 @@ function renderHistory() {
   }
   tl.replaceChildren(...out);
 }
-
-/* ---------------- help ---------------- */
 
 function renderHelp() {
   const nav = $("#helpNav");
@@ -646,8 +634,6 @@ function renderHelp() {
       el("button", { class: "btn btn-quiet", type: "button", onclick: openManual }, "Open the full manual")),
   ].filter(Boolean));
 }
-
-/* ---------------- wiring ---------------- */
 
 async function restoreAction(path, title, text, ok, done) {
   if (!(await confirmDialog(title, text, ok, true))) return;
