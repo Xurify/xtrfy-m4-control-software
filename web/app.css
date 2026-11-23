@@ -393,3 +393,6 @@ dialog h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
   background: rgba(224, 162, 58, 0.07); border-bottom: 1px solid rgba(224, 162, 58, 0.18);
 }
 .notice::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--warn); flex: none; }
+
+.side-foot { margin-top: auto; padding: 0 8px; font-size: 11px; line-height: 1.4; color: var(--text-3); }
+@media (max-width: 900px) { .side-foot { display: none; } }

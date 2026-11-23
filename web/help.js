@@ -131,7 +131,7 @@ window.HELP = [
     topics: [
       {
         id: "support", title: "Support and manual", img: "support",
-        lead: "For anything this app and the guide don't cover, contact Xtrfy support at support@xtrfy.com.",
+        lead: "This app is unofficial and not made or supported by Xtrfy, so their support can't help with it. For problems with the mouse itself, contact Xtrfy at support@xtrfy.com.",
         link: ["manual", "Open the full guide"],
       },
     ],

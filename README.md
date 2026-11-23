@@ -8,6 +8,9 @@
   An unofficial settings app for the <strong>Xtrfy M4 Wireless</strong>, a mouse that ships without any software.
 </p>
 
+> [!NOTE]
+> This is an **unofficial**, community-made project. It is not made, endorsed or supported by Xtrfy or Cherry.
+
 <p align="center">
   <img src="docs/screenshots/performance.png" alt="Performance page: DPI stages, a DPI scale and the live device banner" width="900">
 </p>
@@ -217,14 +220,16 @@ Stop the background helper before using it, so the two don't send commands at th
 
 ## Credits
 
-The protocol work started from three open-source projects for other Compx-based mice, then every detail was checked against a real M4:
+Three open-source projects for other Compx-based mice documented much of this protocol. This project learned the protocol from them, then checked every detail against a real M4. No code was copied from them; everything here is written from scratch.
 
-- [VitaminDB/ardor-mouse](https://github.com/VitaminDB/ardor-mouse): the closest match, including the PMW3370 settings layout and the lighting tables
-- [mateusands/open-m711pro](https://github.com/mateusands/open-m711pro): framing and button records
-- [packerlschupfer/pulsar-mouse-linux](https://github.com/packerlschupfer/pulsar-mouse-linux): reply handling and opcode notes
+- [VitaminDB/ardor-mouse](https://github.com/VitaminDB/ardor-mouse) (MIT): the closest match, including the PMW3370 settings layout and the lighting tables
+- [mateusands/open-m711pro](https://github.com/mateusands/open-m711pro) (GPL-3.0): framing and button records
+- [packerlschupfer/pulsar-mouse-linux](https://github.com/packerlschupfer/pulsar-mouse-linux) (MIT): reply handling and opcode notes
 
-The device drawings and help illustrations are taken from Xtrfy's *M4 Wireless Quick-Start Guide*. They are Xtrfy's work and are used here to explain their product. The interface font is [Inter](https://rsms.me/inter/), under the SIL Open Font License.
+The device drawings and help illustrations are taken from Xtrfy's *M4 Wireless Quick-Start Guide*. They are Xtrfy's work, used here only to explain their product, and will be removed on request.
+
+The interface font is [Inter](https://rsms.me/inter/) by The Inter Project Authors, under the SIL Open Font License 1.1. Its licence is in [`web/assets/fonts/OFL.txt`](web/assets/fonts/OFL.txt).
 
 ## Disclaimer
 
-This is an independent project. It isn't affiliated with, endorsed by or supported by Xtrfy or Cherry. Use it at your own risk. For hardware support, contact Xtrfy.
+This is an unofficial, independent project. It isn't affiliated with, endorsed by or supported by Xtrfy or Cherry, and "Xtrfy" and "M4" are their trademarks, used only to say which mouse this works with. Use it at your own risk. Xtrfy's support can't help with this app; for problems with the mouse itself, contact Xtrfy.
